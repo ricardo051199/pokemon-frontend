@@ -1,0 +1,49 @@
+.content{
+  height: 100vh;
+  background-color: black;
+  background-image: url("https://www.xtrafondos.com/wallpapers/pokemon-unite-8254.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat : no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cards-list{
+  width: 100%;
+  margin: 5vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.card{
+  width: 40vh;
+  height: 25vh;
+  margin: 1%;
+  background-color: rgba(54,150,162,0.7);
+  border-radius: 5vh;
+}
+img{
+  width: 40vh;
+  height: 25vh;
+  opacity: 0.9;
+  border-radius: 5vh;
+
+}
+img:hover{
+  opacity: 0.5;
+  border: white solid 1px;
+}
+button{
+  background-color: rgb(54,150,162);
+  font-size: 1rem;
+  padding: 1rem;
+  border: none;
+}
+button:hover{
+  background-color: rgba(54,150,162,0.7);
+  border: white solid 1px;
+}
