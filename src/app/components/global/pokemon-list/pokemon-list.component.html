@@ -11,7 +11,7 @@
     <div *ngFor="let pokemon of pokemons">
         <div class="card">
             <a >
-                <img [src]="pokemon.imagen" class="card-img" alt="...">
+                <img [src]="pokemon.urlImg" class="card-img" alt="...">
                 <div class="card-body">
                     <h4 class="card-title">{{pokemon.name}} {{pokemon.color}}</h4>
                     <p class="card-text">$ {{pokemon.type1}}.</p>

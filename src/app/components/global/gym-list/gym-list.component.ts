@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GymsService} from "../../../services/gyms/gyms.service";
 
 @Component({
   selector: 'app-gym-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GymListComponent implements OnInit {
 
-  constructor() { }
+  public gyms: any =[];
+
+  constructor(private gymService: GymsService) { }
 
   ngOnInit(): void {
+    this.gymService.getGyms().subscribe(datos=>this.gyms = datos);
   }
 
 }

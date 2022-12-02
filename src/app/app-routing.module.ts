@@ -5,6 +5,7 @@ import {PokemonListComponent} from "./components/global/pokemon-list/pokemon-lis
 import {LeaderListComponent} from "./components/global/leader-list/leader-list.component";
 import {HomepageComponent} from "./components/homepage/homepage.component";
 import {LoginComponent} from "./components/login/login.component";
+import { GymsService } from './services/gyms/gyms.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'pokemon', pathMatch: 'full' },
@@ -19,5 +20,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [GymsService],
 })
 export class AppRoutingModule { }
