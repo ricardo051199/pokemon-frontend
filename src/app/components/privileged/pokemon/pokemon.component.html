@@ -1,0 +1,66 @@
+<div class="body">
+    <div class="dashboard">
+        <a routerLink="" class="active">HOME</a>
+        <a routerLink="/pokemon/admin/gym">GYM</a>
+        <a routerLink="/pokemon/admin/leader">LEADER</a>
+        <a class="option-active">POKEMON</a>
+    </div>
+    <div class="content">
+        <div class="form">
+            <form (submit)="edit ? updatePokemon() : submitPokemon()">
+                <div class="form-group">
+                    <input type="text" name="name" [(ngModel)]="pokemon.name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="type1" [(ngModel)]="pokemon.type1"  placeholder="First type">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="type2" [(ngModel)]="pokemon.type2" placeholder="Second type">
+                </div>
+                <div class="form-group"> Max CP :
+                    <input type="number" name="maxCP" [(ngModel)]="pokemon.maxCP">
+                </div>
+                <div class="form-group">Max HP :
+                    <input type="number" name="maxHP" [(ngModel)]="pokemon.maxHP">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="moneda" [(ngModel)]="pokemon.urlImg" class="form-control" placeholder="URL Image">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Save
+                </button>
+            </form>
+        </div>
+
+        <div class="list">
+
+            <div *ngFor="let pokemon of pokemons" class="list-card">
+                <div class="card">
+                    <a >
+                        <div class="card-body">
+                            <div class="card-img">
+                                <img [src]="pokemon.urlImg" alt="...">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h1>{{pokemon.name}}</h1>
+                                    <h3> {{pokemon.type1}}. {{pokemon.type2}} </h3>
+                                </div>
+                                <div class="card-content2">
+                                    <h4>CP : {{pokemon.maxCP}}.</h4>
+                                    <h4>HP : {{pokemon.maxHP}}.</h4>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="button" class="btn btn-primary" [routerLink]="['/pokemon/admin/pokemon', pokemon.id]">Edit</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="deletePokemon(pokemon.id)" routerLink='/pokemon/admin/pokemon'>Delete</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,10 +1,87 @@
 header{
+  position: fixed;
+  width: 90%;
   color: white;
   background-color: rgb(54,150,162);
   height: 15vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 0 10% 0 10%;
+  padding: 0 5% 0 5%;
   font-size: 3rem;
+  border-bottom: white solid 1px;
+  font-family: 'Playfair Display', serif;
+  a{
+    text-decoration: none;
+    color: white;
+    font-size: 40%;
+    padding: 5vh 4%;
+    border-left: solid white 1px;
+    border-right: solid white 1px;
+  }
+  a:hover{
+    background-color: rgb(17,53,55);
+  }
+  .active{
+    background-color: rgb(17,53,55);
+  }
+}
+.search{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .search-input{
+    border-radius: 1rem;
+    border: none;
+    background-color: rgba(255,255,255,0.9);
+    padding: 1rem;
+    margin: 1rem;
+    width: 50%;
+  }
+  button{
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    width: 15vh;
+    border: none;
+    background-color: rgb(17,53,55);
+    color: white;
+  }
+}
+.list-leaders{
+  min-height: 85vh;
+  font-family: 'Barlow', sans-serif;
+  padding-top: 7rem;
+  background-image: url("https://pm1.narvii.com/6351/d02801a49d0573076fc77c975d2912e71c2c2d20_hq.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat : no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.card-body{
+  height: 60vh;
+  width: 40vh;
+  margin: 2rem ;
+}
+.card-content{
+  padding: 1rem;
+  background-color: rgba(54,150,162,0.9);
+  .card-title{
+    text-align: center;
+  }
+  .card-content2{
+    padding: 2rem 3rem;
+  }
+}
+.card-img{
+  background-color: rgba(0,0,0,0.5);
+  a{
+    width: 90%;
+    height: 30vh;
+  }
 }

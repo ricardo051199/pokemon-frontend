@@ -2,12 +2,22 @@
     <a routerLink="/pokemon">
         Home
     </a>
-    <div>
+    <a class="active">
         Gyms
-    </div>
+    </a>
+    <a routerLink="/pokemon/leaders">
+        Leaders
+    </a>
+    <a routerLink="/pokemon/pokemons">
+        Pokemons
+    </a>
 </header>
 
 <div class="list-gyms">
+    <form class="search" role="search">
+        <input class="search-input" type="text" placeholder="Search" aria-label="Search" id="text-search" #search >
+        <button class="btn btn-outline-success" type="button" (click)="getGymsBy(search.value)">Search</button>
+    </form>
     <div *ngFor="let gym of gyms">
         <div class="card">
             <a >
@@ -18,9 +28,9 @@
                         <h3>" {{gym.lema}} "</h3>
                     </div>
                     <div class="card-content">
-                        <p >LOCATION : {{gym.location}}.</p>
-                        <p >REGION : {{gym.region}}.</p>
-                        <p >TYPE : {{gym.type}}.</p>
+                        <h4>LOCATION : {{gym.location}}.</h4>
+                        <h4 >REGION : {{gym.region}}.</h4>
+                        <h4 >TYPE : {{gym.type}}.</h4>
                     </div>
                 </div>
             </a>

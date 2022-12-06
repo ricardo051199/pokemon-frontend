@@ -9,6 +9,10 @@ import { PokemonListComponent } from './components/global/pokemon-list/pokemon-l
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
+import { PokemonComponent } from './components/privileged/pokemon/pokemon.component';
+import { GymComponent } from './components/privileged/gym/gym.component';
+import { LeaderComponent } from './components/privileged/leader/leader.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +21,17 @@ import { HttpClientModule } from "@angular/common/http";
     LeaderListComponent,
     PokemonListComponent,
     HomepageComponent,
-    LoginComponent
+    LoginComponent,
+    PokemonComponent,
+    GymComponent,
+    LeaderComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

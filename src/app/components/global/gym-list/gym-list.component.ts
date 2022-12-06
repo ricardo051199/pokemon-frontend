@@ -16,4 +16,7 @@ export class GymListComponent implements OnInit {
     this.gymService.getGyms().subscribe(datos=>this.gyms = datos);
   }
 
+  getGymsBy(search: string) {
+    this.gymService.getGymsBy(search).subscribe( datos=>this.gyms = datos);
+  }
 }

@@ -1,0 +1,71 @@
+<div class="body">
+    <div class="dashboard">
+        <a routerLink="" class="active">HOME</a>
+        <a class="option-active">GYM</a>
+        <a routerLink="/pokemon/admin/leader">LEADER</a>
+        <a routerLink="/pokemon/admin/pokemon">POKEMON</a>
+    </div>
+    <div class="content">
+        <div class="form">
+            <form (submit)="edit ? updateGym() : submitGym()">
+                <div class="form-group">
+                    <input type="text" name="name" [(ngModel)]="gym.name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="lema" [(ngModel)]="gym.lema"  placeholder="lema">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="location" [(ngModel)]="gym.location" placeholder="location">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="region" [(ngModel)]="gym.region" placeholder="region">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="type" [(ngModel)]="gym.type" placeholder="type">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="urlImgGym" [(ngModel)]="gym.urlImgGym" placeholder="URL Image Gym">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="urlImgMedal" [(ngModel)]="gym.urlImgMedal" placeholder="URL Image Medal">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Save
+                </button>
+            </form>
+        </div>
+
+        <div class="list">
+
+            <div *ngFor="let gym of gyms" class="list-card">
+                <div class="card">
+                    <a >
+                        <div class="card-body">
+                            <div class="card-img">
+                                <img [src]="gym.urlImgGym" alt="...">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h1>{{gym.name}}</h1>
+                                    <h3> " {{gym.lema}} " </h3>
+                                </div>
+                                <div class="card-content2">
+                                    <h4>CP : {{gym.location}}.</h4>
+                                    <h4>HP : {{gym.region}}.</h4>
+                                    <h4>HP : {{gym.type}}.</h4>
+
+                                </div>
+                                <div class="card-footer">
+                                    <button type="button" class="btn btn-primary" [routerLink]="['/pokemon/admin/gym', gym.id]">Edit</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="deleteGym(gym.id)" routerLink='/pokemon/admin/gym'>Delete</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -9,6 +9,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  header{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    button{
+      padding: 0 2rem;
+      border: white solid;
+      background-color: rgba(0,0,0,0);
+      color: white;
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+    }
+    button:hover{
+      border: none;
+      background-color: rgba(0,0,0,0.5);
+    }
+  }
 }
 .cards-list{
   width: 100%;
@@ -35,15 +53,5 @@ img{
 }
 img:hover{
   opacity: 0.5;
-  border: white solid 1px;
-}
-button{
-  background-color: rgb(54,150,162);
-  font-size: 1rem;
-  padding: 1rem;
-  border: none;
-}
-button:hover{
-  background-color: rgba(54,150,162,0.7);
   border: white solid 1px;
 }

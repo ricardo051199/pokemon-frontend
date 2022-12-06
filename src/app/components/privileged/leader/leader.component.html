@@ -1,0 +1,70 @@
+<div class="body">
+    <div class="dashboard">
+        <a routerLink="" class="active">HOME</a>
+        <a routerLink="/pokemon/admin/gym">GYM</a>
+        <a class="option-active">LEADER</a>
+        <a routerLink="/pokemon/admin/pokemon">POKEMON</a>
+    </div>
+    <div class="content">
+        <div class="form">
+            <form (submit)="submitLeader()">
+                <div class="form-group">
+                    <input type="text" name="name" [(ngModel)]="leader.name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="gender" [(ngModel)]="leader.gender"  placeholder="gender">
+                </div>
+                <div class="form-group"> Year :
+                    <input type="number" name="years" [(ngModel)]="leader.years" placeholder="years">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="home" [(ngModel)]="leader.home" placeholder="Home">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="maxHP" [(ngModel)]="leader.urlImgProfile"  placeholder="URL Img Profile">
+                </div>
+                <div class="form-group">Pokemon ID :
+                    <input type="number" name="pokemonId" [(ngModel)]="leader.pokemonId" placeholder="Pokemon Id">
+                </div>
+                <div class="form-group">Gym ID :
+                    <input type="number" name="gymId" [(ngModel)]="leader.gymId" placeholder="Gym Id">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Save
+                </button>
+            </form>
+        </div>
+
+        <div class="list">
+
+            <div *ngFor="let leader of leaders" class="list-card">
+                <div class="card">
+                    <a >
+                        <div class="card-body">
+                            <div class="card-img">
+                                <img [src]="leader.urlImgProfile" alt="...">
+                            </div>
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h1>{{leader.name}}</h1>
+                                    <h3> {{leader.gender}}. {{leader.years}} </h3>
+                                </div>
+                                <div class="card-content2">
+                                    <h4>HOME : {{leader.home}}.</h4>
+                                    <h4>POKEMON : {{leader.pokemon.name}}.</h4>
+                                    <h4>GYM : {{leader.gym.name}}.</h4>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="button" class="btn btn-primary" [routerLink]="['/pokemon/admin/leader', leader.id]">Edit</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="deleteLeader(leader.id)" routerLink='/pokemon/admin/leader'>Delete</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

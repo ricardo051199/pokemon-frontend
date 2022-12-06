@@ -2,8 +2,43 @@
     <a routerLink="/pokemon">
         Home
     </a>
-    <div>
+    <a routerLink="/pokemon/gyms">
+        Gyms
+    </a>
+    <a class="active">
         Leaders
-    </div>
+    </a>
+    <a routerLink="/pokemon/pokemons">
+        Pokemons
+    </a>
 </header>
 
+
+
+<div class="list-leaders">
+    <form class="search" role="search">
+        <input class="search-input" type="text" placeholder="Search" aria-label="Search" id="text-search" #search >
+        <button class="btn btn-outline-success" type="button" (click)="getLeadersBy(search.value)">Search</button>
+    </form>
+    <div *ngFor="let leader of leaders">
+        <div class="card">
+            <a >
+                <div class="card-body">
+                    <div class="card-img">
+                        <img [src]="leader.urlImgProfile" alt="...">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">
+                            <h1>{{leader.name}}</h1>
+                        </div>
+                        <div class="card-content2">
+                            <h4>GENDER : {{leader.gender}}.</h4>
+                            <h4>YEAR : {{leader.years}}.</h4>
+                            <h4>POKEMON : {{leader.pokemonId}}.</h4>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

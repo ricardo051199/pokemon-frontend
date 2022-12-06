@@ -2,19 +2,41 @@
     <a routerLink="/pokemon">
         Home
     </a>
-    <div>
+    <a routerLink="/pokemon/gyms">
+        Gyms
+    </a>
+    <a routerLink="/pokemon/leaders">
+        Leaders
+    </a>
+    <a class="active">
         Pokemons
-    </div>
+    </a>
 </header>
 
+
 <div class="list-pokemons">
-    <div *ngFor="let pokemon of pokemons">
+    <form class="search" role="search">
+        <input class="search-input" type="text" placeholder="Search" aria-label="Search" id="text-search" #search >
+        <button class="btn btn-outline-success" type="button" (click)="getPokemonsBy(search.value)">Search</button>
+    </form>
+    <div *ngFor="let pokemon of pokemons" >
         <div class="card">
             <a >
-                <img [src]="pokemon.urlImg" class="card-img" alt="...">
                 <div class="card-body">
-                    <h4 class="card-title">{{pokemon.name}} {{pokemon.color}}</h4>
-                    <p class="card-text">$ {{pokemon.type1}}.</p>
+                    <div class="card-title">
+                        <h1>{{pokemon.name}}</h1>
+                        <h3> {{pokemon.type1}}. {{pokemon.type2}} </h3>
+                    </div>
+                    <div class="card-img">
+                        <img [src]="pokemon.urlImg" alt="...">
+                    </div>
+                    <div class="card-content">
+
+                        <div class="card-content2">
+                            <h4>CP : {{pokemon.maxCP}}.</h4>
+                            <h4>HP : {{pokemon.maxHP}}.</h4>
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
