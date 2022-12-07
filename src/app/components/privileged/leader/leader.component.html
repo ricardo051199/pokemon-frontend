@@ -14,7 +14,7 @@
                 <div class="form-group">
                     <input type="text" name="gender" [(ngModel)]="leader.gender"  placeholder="gender">
                 </div>
-                <div class="form-group"> Year :
+                <div class="form-group">
                     <input type="number" name="years" [(ngModel)]="leader.years" placeholder="years">
                 </div>
                 <div class="form-group">
@@ -23,8 +23,15 @@
                 <div class="form-group">
                     <input type="text" name="maxHP" [(ngModel)]="leader.urlImgProfile"  placeholder="URL Img Profile">
                 </div>
-                <div class="form-group">Pokemon ID :
-                    <input type="number" name="pokemonId" [(ngModel)]="leader.pokemonId" placeholder="Pokemon Id">
+                <div class="form-group"> Selecciona Pokemon:
+                    <br>
+                    <button class="tipo-boton" href = "javascript: void (0)" onclick = "document.getElementById ('light'). style.display = 'block'; document.getElementById ('fade'). style. display = 'block' "> SELECCIONAR </button>
+                        <div id="light" class="white_content">
+                           Este es un programa de muestra para la ventana de capa. 
+                           <a href = "javascript: void (0)" onclick = "document.getElementById ('light'). style.display = 'none'; document.getElementById ('fade'). style.display = 'none'" style = "position: absolute; right: 0px; top: 0px;"> Haga clic aquí para cerrar esta ventana </a>
+                    </div> 
+                    <div id="fade" class="black_overlay"></div> 
+                    <!-- <input type="text" name="pokemonId" [(ngModel)]="leader.pokemonId" placeholder="Pokemon Name"> -->
                 </div>
                 <div class="form-group">Gym ID :
                     <input type="number" name="gymId" [(ngModel)]="leader.gymId" placeholder="Gym Id">
