@@ -1,10 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { PokemonListComponent } from '../../global/pokemon-list/pokemon-list.component';
 
 import { LeaderComponent } from './leader.component';
 
 describe('LeaderComponent', () => {
   let component: LeaderComponent;
   let fixture: ComponentFixture<LeaderComponent>;
+  let pokemons: PokemonListComponent;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
