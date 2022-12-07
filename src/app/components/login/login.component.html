@@ -1,5 +1,5 @@
 <div class="body-login">
-    <form>
+    <form (ngSubmit)="onLogin(username.value, password.value)">
 
         <header>
             LOG IN
@@ -9,7 +9,7 @@
             <input type="text" name="username" placeholder="Username" #username>
         </div>
         <div class="form-group">
-            <input type="text" name="password" placeholder="password" #password>
+            <input type="password" name="password" placeholder="password" #password>
         </div>
         <button>login</button>
     </form>

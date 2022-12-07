@@ -13,6 +13,7 @@ import {FormsModule} from "@angular/forms";
 import { PokemonComponent } from './components/privileged/pokemon/pokemon.component';
 import { GymComponent } from './components/privileged/gym/gym.component';
 import { LeaderComponent } from './components/privileged/leader/leader.component';
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { LeaderComponent } from './components/privileged/leader/leader.component
         HttpClientModule,
         FormsModule,
     ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {GymsService} from "../../../services/gyms/gyms.service";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-gym',
@@ -22,10 +23,10 @@ export class GymComponent implements OnInit {
   public gyms: any =[];
   edit: boolean=false;
 
-  constructor(private gymService: GymsService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private gymService: GymsService, private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService) { }
 
   ngOnInit(): void {
-    this.gymService.getGyms().subscribe(datos=>this.gyms = datos);
+    this.gymService.getGyms().subscribe(datos=>this.gyms = datos, error => console.log(error));
     const params = this.activatedRoute.snapshot.params;
     if(params){
       this.gymService.getGym(params['id']).subscribe(res=>{
@@ -52,5 +53,9 @@ export class GymComponent implements OnInit {
     this.gymService.updateGym(this.gym.id, this.gym).subscribe(res=>{
       this.gymService.getGyms().subscribe(datos=>this.gyms = datos);
     })
+  }
+  onLogOut(): void {
+    this.cookieService.delete("token");
+    this.router.navigate(['/'])
   }
 }

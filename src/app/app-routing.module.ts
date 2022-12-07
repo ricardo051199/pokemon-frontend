@@ -10,6 +10,9 @@ import { LeadersService } from './services/leaders/leaders.service';
 import {PokemonComponent} from "./components/privileged/pokemon/pokemon.component";
 import {GymComponent} from "./components/privileged/gym/gym.component";
 import {LeaderComponent} from "./components/privileged/leader/leader.component";
+import { AuthService } from './services/auth/auth.service';
+import { TokenService } from './services/token/token.service';
+import {GuardGuard} from "./jwt/guard.guard";
 
 const routes: Routes = [
   { path: '', redirectTo: 'pokemon', pathMatch: 'full' },
@@ -20,16 +23,16 @@ const routes: Routes = [
   { path: 'pokemon/pokemons', component: PokemonListComponent },
   { path: 'pokemon/pokemons/:search', component: PokemonListComponent },
 
-  { path: 'pokemon/admin/pokemon', component: PokemonComponent },
-  { path: 'pokemon/admin/pokemon/:id', component: PokemonComponent },
+  { path: 'pokemon/admin/pokemon', component: PokemonComponent, canActivate: [GuardGuard] },
+  { path: 'pokemon/admin/pokemon/:id', component: PokemonComponent, canActivate: [GuardGuard] },
 
 
-  { path: 'pokemon/admin/leader', component: LeaderComponent },
-  { path: 'pokemon/admin/leader/:id', component: LeaderComponent   },
+  { path: 'pokemon/admin/leader', component: LeaderComponent, canActivate: [GuardGuard] },
+  { path: 'pokemon/admin/leader/:id', component: LeaderComponent, canActivate: [GuardGuard] },
 
 
-  { path: 'pokemon/admin/gym', component: GymComponent },
-  { path: 'pokemon/admin/gym/:id', component: GymComponent },
+  { path: 'pokemon/admin/gym', component: GymComponent, canActivate: [GuardGuard],},
+  { path: 'pokemon/admin/gym/:id', component: GymComponent, canActivate: [GuardGuard] },
 
 
 
@@ -39,6 +42,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [GymsService, LeadersService],
+  providers: [GymsService, LeadersService, AuthService, TokenService],
 })
 export class AppRoutingModule { }

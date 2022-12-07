@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PokemonsService} from "../../../services/pokemons/pokemons.service";
 import {Router, ActivatedRoute} from "@angular/router";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-pokemon',
@@ -21,7 +22,7 @@ export class PokemonComponent implements OnInit {
   edit: boolean=false;
   public pokemons: any =[];
 
-  constructor(private pokemonService: PokemonsService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private pokemonService: PokemonsService, private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService) { }
 
   ngOnInit(): void {
     this.pokemonService.getPokemons().subscribe(datos=>this.pokemons = datos);
@@ -50,5 +51,9 @@ export class PokemonComponent implements OnInit {
     this.pokemonService.updatePokemon(this.pokemon.id, this.pokemon).subscribe(res=>{
       this.pokemonService.getPokemons().subscribe(datos=>this.pokemons = datos);
     })
+  }
+  onLogOut(): void {
+    this.cookieService.delete("token");
+    this.router.navigate(['/'])
   }
 }

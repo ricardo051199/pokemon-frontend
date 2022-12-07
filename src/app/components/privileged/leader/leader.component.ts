@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PokemonsService} from "../../../services/pokemons/pokemons.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {LeadersService} from "../../../services/leaders/leaders.service";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-leader',
@@ -22,7 +23,7 @@ export class LeaderComponent implements OnInit {
 
   public leaders: any =[];
 
-  constructor(private leaderService: LeadersService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private leaderService: LeadersService, private router: Router, private activatedRoute: ActivatedRoute, private  cookieService: CookieService) { }
 
   ngOnInit(): void {
     this.leaderService.getLeaders().subscribe(datos=>this.leaders = datos);
@@ -37,5 +38,9 @@ export class LeaderComponent implements OnInit {
     this.leaderService.deleteLeader(id).subscribe(res=>{
       this.leaderService.getLeaders().subscribe(datos=>this.leaders = datos);
     }, err=>console.log(err));
+  }
+  onLogOut(): void {
+    this.cookieService.delete("token");
+    this.router.navigate(['/'])
   }
 }
